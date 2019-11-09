@@ -1,9 +1,9 @@
 package model;
 
 public class Pixel {
-  int r;
-  int g;
-  int b;
+  private int r;
+  private int g;
+  private int b;
 
   public Pixel(int r, int g, int b) {
     this.r = r;
