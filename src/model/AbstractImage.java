@@ -1,6 +1,11 @@
 package model;
 
 public abstract class AbstractImage {
-  public abstract AbstractImage blur();
-  public abstract  AbstractImage sharpen();
+  abstract AbstractImage blur(int[][] filter);
+
+  abstract AbstractImage sharpen(int[][] filter);
+
+  abstract AbstractImage greyScale(int[][] filter);
+
+  abstract AbstractImage sepicaTone(int[][] filter);
 }

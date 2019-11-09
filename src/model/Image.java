@@ -1,16 +1,14 @@
 package model;
 
-import model.AbstractImage;
-
 public class Image extends AbstractImage {
   double width;
   double length;
-  Pixel[][] pixel;
+  Pixel[][] pixels;
 
   public Image(double width, double length, Pixel[][] pixel) {
     this.width = width;
     this.length = length;
-    this.pixel = pixel;
+    this.pixels = pixel;
   }
 
   public double getWidth() {
@@ -29,21 +27,35 @@ public class Image extends AbstractImage {
     this.length = length;
   }
 
-  public Pixel[][] getPixel() {
-    return pixel;
+  public Pixel[][] getPixels() {
+    return pixels;
   }
 
-  public void setPixel(Pixel[][] pixel) {
-    this.pixel = pixel;
+  public void setPixels(Pixel[][] pixels) {
+    this.pixels = pixels;
+  }
+
+  public Pixel getPixel(int x, int y) {
+    return pixels[x][y];
   }
 
   @Override
-  public AbstractImage blur() {
+  AbstractImage blur(int[][] filter) {
     return null;
   }
 
   @Override
-  public AbstractImage sharpen() {
+  AbstractImage sharpen(int[][] filter) {
+    return null;
+  }
+
+  @Override
+  AbstractImage greyScale(int[][] filter) {
+    return null;
+  }
+
+  @Override
+  AbstractImage sepicaTone(int[][] filter) {
     return null;
   }
 }
