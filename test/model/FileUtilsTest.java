@@ -11,5 +11,9 @@ public class FileUtilsTest {
     } catch (Exception e) {
       e.printStackTrace();
     }
+
+    ImageUtils.drawHorizontalRainrow(700, 700);
+    ImageUtils.drawVerticalRainbow(700, 700);
+    ImageUtils.drawCheckBoard(800, 800);
   }
 }

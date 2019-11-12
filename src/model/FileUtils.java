@@ -1,21 +1,31 @@
 package model;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
 
+/**
+ * Util class to get image from path and convert it to Pixel array. It can also output cached Pixel
+ * to image with specific path.
+ */
 public class FileUtils {
 
-  public static Pixel[][] getImagePixel(String image) {
+  /**
+   * Get image from path and cache it in Pixel arrays.
+   *
+   * @param path Path of the image.
+   * @return Pixel array caching information of the image.
+   */
+  public static Pixel[][] getImagePixel(String path) {
+
+    // Get BufferedImage from the picture of the path.
     int[] rgb = new int[3];
-    File file = new File(image);
+    File file = new File(path);
     BufferedImage bi = null;
     try {
       bi = ImageIO.read(file);
@@ -24,6 +34,8 @@ public class FileUtils {
     }
     int width = bi.getWidth();
     int height = bi.getHeight();
+
+    // Convert picture to pixel array.
     Pixel[][] data = new Pixel[height][width];
     for (int i = 0; i < width; i++) {
       for (int j = 0; j < height; j++) {
@@ -37,8 +49,16 @@ public class FileUtils {
     return data;
   }
 
+  /**
+   * Output stored image to specific path.
+   *
+   * @param pixels Stored pixel array.
+   * @param path   Output path.
+   * @throws IOException If there is an IOException, throw it.
+   */
   public static void output(Pixel[][] pixels, String path) throws IOException {
 
+    // Convert pixels to bufferedImage.
     int width = pixels[0].length;
     int height = pixels.length;
     BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -50,6 +70,7 @@ public class FileUtils {
       }
     }
 
+    // Draw picture to given path.
     Iterator<ImageWriter> it = ImageIO.getImageWritersByFormatName("png");
     ImageWriter writer = it.next();
     File f = new File(path);
@@ -60,5 +81,4 @@ public class FileUtils {
     ios.flush();
     ios.close();
   }
-
 }
