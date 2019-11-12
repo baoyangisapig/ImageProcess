@@ -1,10 +1,19 @@
 package model;
 
+/**
+ * The class represents the operations for image.
+ */
 public class Image extends AbstractImage {
   double width;
   double length;
   Pixel[][] pixels;
 
+  /**
+   * Constructor for Image.
+   * @param width width of the board.
+   * @param length length of the board.
+   * @param pixel pixel array that represents the image.
+   */
   public Image(double width, double length, Pixel[][] pixel) {
     this.width = width;
     this.length = length;
@@ -40,25 +49,25 @@ public class Image extends AbstractImage {
   }
 
   @Override
-  AbstractImage blur(double[][] filter) {
+  public AbstractImage blur(double[][] filter) {
       helpFilterOperate(filter);
       return this;
   }
 
   @Override
-  AbstractImage sharpen(double[][] filter){
+  public AbstractImage sharpen(double[][] filter){
     helpFilterOperate(filter);
     return this;
   }
 
   @Override
-  AbstractImage greyScale(double[][] filter) {
+  public AbstractImage greyScale(double[][] filter) {
     helpTransformOperate(filter);
     return this;
   }
 
   @Override
-  AbstractImage sepicaTone(double[][] filter) {
+  public AbstractImage sepicaTone(double[][] filter) {
     helpTransformOperate(filter);
     return this;
   }

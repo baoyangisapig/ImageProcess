@@ -5,6 +5,7 @@ import java.io.IOException;
 
 /**
  * Util class for drawing pictures.
+ * @Author YiMing Chu
  */
 public class ImageUtils {
 
@@ -37,7 +38,7 @@ public class ImageUtils {
     }
     // Draw horizontal rainbow.
     try {
-      FileUtils.output(pixels, "src/model/horizontal_rainbow.png");
+      FileUtils.output(pixels, "res/horizontal_rainbow.png");
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -63,7 +64,7 @@ public class ImageUtils {
     }
     // Draw rainbow.
     try {
-      FileUtils.output(pixels, "src/model/vertical_rainbow.png");
+      FileUtils.output(pixels, "res/vertical_rainbow.png");
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -101,7 +102,7 @@ public class ImageUtils {
     }
     // Draw check board.
     try {
-      FileUtils.output(pixels, "src/model/check_board.png");
+      FileUtils.output(pixels, "res/check_board.png");
     } catch (IOException e) {
       e.printStackTrace();
     }
