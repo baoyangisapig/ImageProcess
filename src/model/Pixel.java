@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * The class represents a special color with r g b.
@@ -12,6 +12,7 @@ public class Pixel {
 
   /**
    * The constructor for the class.
+   *
    * @param r dimension r.
    * @param g dimension g.
    * @param b dimension b.
@@ -24,6 +25,7 @@ public class Pixel {
 
   /**
    * use color to constructor the class.
+   *
    * @param color a particular color.
    */
   public Pixel(Color color) {

@@ -1,10 +1,11 @@
 package model;
 
-import java.awt.*;
+import java.awt.Color;
 import java.io.IOException;
 
 /**
  * Util class for drawing pictures.
+ *
  * @Author YiMing Chu
  */
 public class ImageUtils {

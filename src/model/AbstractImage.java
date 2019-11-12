@@ -2,18 +2,21 @@ package model;
 
 /**
  * The class represent the general items of image.
+ *
  * @Author Yang Bao&&YiMing Chu
  */
 public abstract class AbstractImage {
   /**
    * blur the image with a filter.
+   *
    * @param filter filter array.
    * @return the current image.
    */
   abstract AbstractImage blur(double[][] filter);
 
   /**
-   * sharpen the image with a filter
+   * Sharpen the image with a filter.
+   *
    * @param filter filter array.
    * @return the current image.
    */
@@ -21,6 +24,7 @@ public abstract class AbstractImage {
 
   /**
    * greyScale the image with a filter.
+   *
    * @param filter filter array.
    * @return the current image.
    */
@@ -28,6 +32,7 @@ public abstract class AbstractImage {
 
   /**
    * sepicaTone the image with a filter.
+   *
    * @param filter filter array.
    * @return the current image.
    */
