@@ -37,4 +37,16 @@ public abstract class AbstractImage {
    * @return the current image.
    */
   abstract AbstractImage sepicaTone(double[][] filter);
+
+  /**
+   * dither the image.
+   * @return the image object after processing.
+   */
+  abstract  AbstractImage dither();
+
+  /**
+   * mosaic the image.
+   * @return the image object after processing.
+   */
+  abstract  AbstractImage mosaic();
 }

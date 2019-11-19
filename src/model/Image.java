@@ -73,6 +73,16 @@ public class Image extends AbstractImage {
     return this;
   }
 
+  @Override
+  AbstractImage dither() {
+    return null;
+  }
+
+  @Override
+  AbstractImage mosaic() {
+    return null;
+  }
+
   private void helpTransformOperate(double[][] filter) {
     for (int i = 0; i <= pixels.length - 1; i++) {
       for (int j = 0; j <= pixels[0].length - 1; j++) {
