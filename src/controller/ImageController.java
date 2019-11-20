@@ -67,4 +67,31 @@ public class ImageController {
     Image image1 = (Image) image.sepicaTone(filter);
     FileUtils.output(image1.getPixels(), outputPath);
   }
+
+  /**
+   * dither the picture.
+   *
+   * @param inputPath  Input path of the picture.
+   * @param outputPath Output path of the picture.
+   * @throws IOException Throw IOException.
+   */
+  public void dither(String inputPath, String outputPath) throws IOException {
+    Image image = new Image(400, 400, FileUtils.getImagePixel(inputPath));
+    Image image1 = (Image) image.dither();
+    FileUtils.output(image1.getPixels(), outputPath);
+  }
+
+  /**
+   * mosaic the input picture.
+   *
+   * @param inputPath  Input path of the picture.
+   * @param outputPath Output path of the picture.
+   * @param seeds      number of seeds.
+   * @throws IOException Throw IOException.
+   */
+  public void mosaic(String inputPath, String outputPath, int seeds) throws IOException {
+    Image image = new Image(400, 400, FileUtils.getImagePixel(inputPath));
+    Image image1 = (Image) image.mosaic(seeds);
+    FileUtils.output(image1.getPixels(), outputPath);
+  }
 }

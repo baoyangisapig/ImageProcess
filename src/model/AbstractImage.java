@@ -40,13 +40,15 @@ public abstract class AbstractImage {
 
   /**
    * dither the image.
+   *
    * @return the image object after processing.
    */
-  abstract  AbstractImage dither();
+  abstract AbstractImage dither();
 
   /**
    * mosaic the image.
+   *
    * @return the image object after processing.
    */
-  abstract  AbstractImage mosaic();
+  abstract AbstractImage mosaic(int seeds);
 }
