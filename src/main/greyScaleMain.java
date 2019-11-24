@@ -2,17 +2,20 @@ package main;
 
 import java.io.IOException;
 
+import controller.GreyScaleController;
 import controller.ImageController;
+import controller.SepicaToneController;
+import model.FileUtils;
+import model.Image;
 
 public class greyScaleMain {
   public static void main(String[] args) throws IOException {
-    ImageController c1 = new ImageController();
-    double[][] filter2 = new double[][]{
-            {0.2126, 0.7152, 0.0722},
-            {0.2126, 0.7152, 0.0722},
-            {0.2126, 0.7152, 0.0722}
-    };
-    c1.greyScale(filter2, "./res/panda.jpg", "./res/panda_greyScale.jpg");
-    c1.greyScale(filter2, "./res/kid.jpg", "./res/kid_greyScale.jpg");
+    Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");
+    Image kidImg = (Image) FileUtils.load("./res/kid.jpg");
+    GreyScaleController controller = new GreyScaleController();
+    Image greyScaledPanda = (Image) controller.greyScale(pandaImg);
+    Image greyScaledKid = (Image) controller.greyScale(kidImg);
+    FileUtils.save(greyScaledPanda, "./res/panda_greyScale2.jpg");
+    FileUtils.save(greyScaledKid, "./res/kid_greyScale2.jpg");
   }
 }

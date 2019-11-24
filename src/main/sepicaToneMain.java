@@ -2,17 +2,20 @@ package main;
 
 import java.io.IOException;
 
+import controller.BlurController;
 import controller.ImageController;
+import controller.SepicaToneController;
+import model.FileUtils;
+import model.Image;
 
 public class sepicaToneMain {
   public static void main(String[] args) throws IOException {
-    ImageController c1 = new ImageController();
-    double[][] filter3 = new double[][]{
-            {0.393, 0.769, 0.189},
-            {0.349, 0.686, 0.168},
-            {0.272, 0.534, 0.131}
-    };
-    c1.sepicaTone(filter3, "./res/panda.jpg", "./res/panda_sepicaTone.jpg");
-    c1.sepicaTone(filter3, "./res/kid.jpg", "./res/kid_sepicaTone.jpg");
+    Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");
+    Image kidImg = (Image) FileUtils.load("./res/kid.jpg");
+    SepicaToneController controller = new SepicaToneController();
+    Image sepicaTonedPanda = (Image) controller.sepicaTone(pandaImg);
+    Image sepicaTonedKid = (Image) controller.sepicaTone(kidImg);
+    FileUtils.save(sepicaTonedPanda, "./res/panda_sepicaTone.jpg");
+    FileUtils.save(sepicaTonedKid, "./res/kid_sepicaTone.jpg");
   }
 }

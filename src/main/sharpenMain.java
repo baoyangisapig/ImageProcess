@@ -13,9 +13,9 @@ public class sharpenMain {
     Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");
     Image kidImg = (Image) FileUtils.load("./res/kid.jpg");
     SharpenController controller = new SharpenController();
-    Image bluredPanda = (Image) controller.sharpen(pandaImg);
-    Image bluredKid = (Image) controller.sharpen(kidImg);
-    FileUtils.save(bluredPanda, "./res/panda_sharpen2.jpg");
-    FileUtils.save(bluredKid, "./res/kid_sharpen2.jpg");
+    Image sharpenedPanda = (Image) controller.sharpen(pandaImg);
+    Image sharpenedKid = (Image) controller.sharpen(kidImg);
+    FileUtils.save(sharpenedPanda, "./res/panda_sharpen.jpg");
+    FileUtils.save(sharpenedKid, "./res/kid_sharpen.jpg");
   }
 }
