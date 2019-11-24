@@ -15,7 +15,7 @@ public class GreyScaleController extends BaseController implements GreyScaleInte
   @Override
   public AbstractImage greyScale(AbstractImage image) {
     Image img = (Image) image;
-    img = helpFilterOperate(img, filter);
+    img = (Image) helpTransformOperate(img, filter);
     return img;
   }
 }

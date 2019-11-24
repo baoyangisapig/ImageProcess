@@ -15,7 +15,7 @@ public class SepicaToneController extends BaseController implements SepicaToneIn
   @Override
   public AbstractImage sepicaTone(AbstractImage image) {
     Image img = (Image) image;
-    img = helpFilterOperate(img, filter);
+    img = (Image) helpTransformOperate(img, filter);
     return img;
   }
 }
