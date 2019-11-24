@@ -1,9 +1,7 @@
 package controller;
 
 import model.AbstractImage;
-import model.BlurInterface;
 import model.Image;
-import model.Pixel;
 
 /**
  * Blur Controller.

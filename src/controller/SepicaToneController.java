@@ -2,7 +2,6 @@ package controller;
 
 import model.AbstractImage;
 import model.Image;
-import model.SepicaToneInterface;
 
 public class SepicaToneController extends BaseController implements SepicaToneInterface {
 

@@ -2,7 +2,6 @@ package controller;
 
 import model.AbstractImage;
 import model.Image;
-import model.SharpenInterface;
 
 public class SharpenController extends BaseController implements SharpenInterface {
 

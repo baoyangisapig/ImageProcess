@@ -1,7 +1,6 @@
 package controller;
 
 import model.AbstractImage;
-import model.GreyScaleInterface;
 import model.Image;
 
 public class GreyScaleController extends BaseController implements GreyScaleInterface {
