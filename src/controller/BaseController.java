@@ -25,12 +25,33 @@ public class BaseController {
 
   protected Image helpFilterOperate(AbstractImage image, double[][] filter) {
     Image img = (Image) image;
-    Pixel[][] pixels = ((Image) image).getPixels();
+    Pixel[][] pixels = img.getPixels();
     for (int i = 0; i <= pixels.length - 1; i++) {
       for (int j = 0; j <= pixels[0].length - 1; j++) {
         pixels[i][j].setR(getFixedValue(filter, pixels, i, j, 0));
         pixels[i][j].setG(getFixedValue(filter, pixels, i, j, 1));
         pixels[i][j].setB(getFixedValue(filter, pixels, i, j, 2));
+      }
+    }
+    clamp(pixels);
+    img.setPixels(pixels);
+    return img;
+  }
+
+  protected AbstractImage helpTransformOperate(AbstractImage image, double[][] filter) {
+    Image img = (Image) image;
+    Pixel[][] pixels = img.getPixels();
+    for (int i = 0; i <= pixels.length - 1; i++) {
+      for (int j = 0; j <= pixels[0].length - 1; j++) {
+        int r = (int) (filter[0][0] * pixels[i][j].getR() + filter[0][1] * pixels[i][j].getG()
+                + filter[0][2] * pixels[i][j].getB());
+        int g = (int) (filter[1][0] * pixels[i][j].getR() + filter[1][1] * pixels[i][j].getG()
+                + filter[1][2] * pixels[i][j].getB());
+        int b = (int) (filter[2][0] * pixels[i][j].getR() + filter[2][1] * pixels[i][j].getG()
+                + filter[2][2] * pixels[i][j].getB());
+        pixels[i][j].setR(r);
+        pixels[i][j].setG(g);
+        pixels[i][j].setB(b);
       }
     }
     clamp(pixels);
