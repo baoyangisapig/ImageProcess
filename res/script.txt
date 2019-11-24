@@ -1,0 +1,8 @@
+load kid.jpg
+dither
+save kid-dither.jpg
+load kid.jpg
+blur
+save kid-blur.png
+sepia
+save kid-blur-sepia.png
