@@ -6,16 +6,16 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import controller.BlurController;
+import controller.DitherController;
 import controller.GreyScaleController;
+import controller.MosaicController;
 import controller.SepicaToneController;
 import controller.SharpenController;
 import model.FileUtils;
 import model.Image;
-import model.Pixel;
 
 public class FileMain {
 
-  private static Pixel[][] pixels;
   private static Image img = null;
 
   public static void main(String[] args) throws IOException {
@@ -38,6 +38,12 @@ public class FileMain {
       } else if (arr[0].equals("sharpen")) {
         SharpenController controller = new SharpenController();
         img = (Image) controller.sharpen(img);
+      } else if (arr[0].equals("dither")) {
+        DitherController controller = new DitherController();
+        img = (Image) controller.dither(img);
+      } else if (arr[0].equals("mosaic")) {
+        MosaicController controller = new MosaicController();
+        img = (Image) controller.mosaic(img, 1000);
       } else if (arr[0].equals("save")) {
         FileUtils.save(img, "res/" + arr[1]);
       }
