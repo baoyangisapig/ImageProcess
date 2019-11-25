@@ -8,6 +8,9 @@ import model.AbstractImage;
 import model.Image;
 import model.Pixel;
 
+/**
+ * BaseController which contains common methods.
+ */
 public class BaseController {
   public Pixel[][] clamp(Pixel[][] pixels) {
     for (int i = 0; i <= pixels.length - 1; i++) {

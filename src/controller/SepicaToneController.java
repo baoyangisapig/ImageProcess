@@ -3,6 +3,9 @@ package controller;
 import model.AbstractImage;
 import model.Image;
 
+/**
+ * SepicaTone controller.
+ */
 public class SepicaToneController extends BaseController implements SepicaToneInterface {
 
   private double[][] filter = new double[][]{
