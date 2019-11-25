@@ -2,6 +2,9 @@ package controller;
 
 import model.AbstractImage;
 
+/**
+ * Interface for greyScaling the image.
+ */
 public interface GreyScaleInterface {
   /**
    * GreyScale the given image.

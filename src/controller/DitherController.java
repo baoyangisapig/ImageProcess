@@ -3,6 +3,9 @@ package controller;
 import model.AbstractImage;
 import model.Image;
 
+/**
+ * The controller to dither the image.
+ */
 public class DitherController extends BaseController implements DitherInterface {
   @Override
   public AbstractImage dither(AbstractImage image) {

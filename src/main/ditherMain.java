@@ -6,6 +6,9 @@ import controller.DitherController;
 import model.FileUtils;
 import model.Image;
 
+/**
+ * Main method to dither.
+ */
 public class ditherMain {
   public static void main(String[] args) throws IOException {
     Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");

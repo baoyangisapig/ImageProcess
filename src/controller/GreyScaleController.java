@@ -4,7 +4,7 @@ import model.AbstractImage;
 import model.Image;
 
 /**
- * Grey scale controller.
+ * The controller to greyScale the image.
  */
 public class GreyScaleController extends BaseController implements GreyScaleInterface {
 

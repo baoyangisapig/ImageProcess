@@ -4,7 +4,7 @@ import model.AbstractImage;
 import model.Image;
 
 /**
- * Controller for sharpen.
+ * Controller for sharping operation.
  */
 public class SharpenController extends BaseController implements SharpenInterface {
 

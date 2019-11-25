@@ -14,6 +14,9 @@ import controller.SharpenController;
 import model.FileUtils;
 import model.Image;
 
+/**
+ * Main method to manipulate the file.
+ */
 public class FileMain {
 
   private static Image img = null;

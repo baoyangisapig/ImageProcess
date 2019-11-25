@@ -8,6 +8,9 @@ import controller.SharpenController;
 import model.FileUtils;
 import model.Image;
 
+/**
+ * Main method to sharpen.
+ */
 public class sharpenMain {
   public static void main(String[] args) throws IOException {
     Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");
