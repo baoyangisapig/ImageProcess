@@ -13,6 +13,9 @@ import model.FileUtils;
 import model.Image;
 import model.Pixel;
 
+/**
+ * Main method to manipulate the file.
+ */
 public class FileMain {
 
   private static Pixel[][] pixels;

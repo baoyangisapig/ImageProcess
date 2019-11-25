@@ -2,6 +2,9 @@ package controller;
 
 import model.AbstractImage;
 
+/**
+ * Interface to mosaic.
+ */
 public interface MosaicInterface {
   /**
    * mosaic the given image.

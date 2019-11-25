@@ -3,6 +3,9 @@ package controller;
 import model.AbstractImage;
 import model.Image;
 
+/**
+ * Controller for sharping operation.
+ */
 public class SharpenController extends BaseController implements SharpenInterface {
 
   private double[][] filter = new double[][]{

@@ -3,11 +3,12 @@ package main;
 import java.io.IOException;
 
 import controller.GreyScaleController;
-import controller.ImageController;
-import controller.SepicaToneController;
 import model.FileUtils;
 import model.Image;
 
+/**
+ * Main method to greyscale.
+ */
 public class greyScaleMain {
   public static void main(String[] args) throws IOException {
     Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");

@@ -2,6 +2,9 @@ package controller;
 
 import model.AbstractImage;
 
+/**
+ * Interface for dithering.
+ */
 public interface DitherInterface {
   /**
    * dither the given image.

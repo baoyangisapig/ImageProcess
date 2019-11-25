@@ -8,6 +8,9 @@ import controller.SepicaToneController;
 import model.FileUtils;
 import model.Image;
 
+/**
+ * Main method to sepicaTone.
+ */
 public class sepicaToneMain {
   public static void main(String[] args) throws IOException {
     Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");

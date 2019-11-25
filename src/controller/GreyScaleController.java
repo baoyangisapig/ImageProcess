@@ -3,6 +3,9 @@ package controller;
 import model.AbstractImage;
 import model.Image;
 
+/**
+ * The controller to greyScale the image.
+ */
 public class GreyScaleController extends BaseController implements GreyScaleInterface {
 
   private double[][] filter = new double[][]{

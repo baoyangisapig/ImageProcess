@@ -1,7 +1,9 @@
 package controller;
 
 import model.AbstractImage;
-
+/**
+ * Interface to sepicaTone the image.
+ */
 public interface SepicaToneInterface {
   /**
    * SepicaTone image.

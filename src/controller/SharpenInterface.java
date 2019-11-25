@@ -2,6 +2,9 @@ package controller;
 
 import model.AbstractImage;
 
+/**
+ * Interface to sharpen.
+ */
 public interface SharpenInterface {
   /**
    * Sharpen the given image.

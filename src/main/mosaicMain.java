@@ -8,6 +8,9 @@ import controller.MosaicController;
 import model.FileUtils;
 import model.Image;
 
+/**
+ * Main method to mosaic.
+ */
 public class mosaicMain {
   public static void main(String[] args) throws IOException {
     Image pandaImg = (Image) FileUtils.load("./res/panda.jpg");
