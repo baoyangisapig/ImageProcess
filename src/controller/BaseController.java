@@ -9,7 +9,7 @@ import model.Image;
 import model.Pixel;
 
 /**
- * Base Controller.
+ * BaseController which contains common methods.
  */
 public class BaseController {
   public Pixel[][] clamp(Pixel[][] pixels) {
@@ -81,25 +81,26 @@ public class BaseController {
     }
     return res;
   }
+
   public AbstractImage helpDither(Image image) {
-     double[][] filter = new double[][]{
+    double[][] filter = new double[][]{
             {0.2126, 0.7152, 0.0722},
             {0.2126, 0.7152, 0.0722},
             {0.2126, 0.7152, 0.0722}
     };
-    image= (Image) helpTransformOperate(image,filter);
-    Pixel[][] pixels=image.getPixels();
+    image = (Image) helpTransformOperate(image, filter);
+    Pixel[][] pixels = image.getPixels();
 
     for (int i = 0; i <= pixels.length - 1; i++) {
       for (int j = 0; j <= pixels[0].length - 1; j++) {
-        manipulate(pixels,i, j);
+        manipulate(pixels, i, j);
       }
     }
     image.setPixels(pixels);
     return image;
   }
 
-  protected void manipulate( Pixel[][] pixels,int i, int j) {
+  protected void manipulate(Pixel[][] pixels, int i, int j) {
     int old_color = pixels[i][j].getR();
     int new_color = 255 - old_color > old_color ? 0 : 255;
     int err = old_color - new_color;
@@ -140,8 +141,8 @@ public class BaseController {
     }
   }
 
-  protected AbstractImage helpMosaic(Image image,int seeds) {
-    Pixel[][] pixels=image.getPixels();
+  protected AbstractImage helpMosaic(Image image, int seeds) {
+    Pixel[][] pixels = image.getPixels();
     int[][] seed_index = new int[seeds][2];
     int length = pixels.length;
     int width = pixels[0].length;

@@ -1,3 +1,4 @@
 load kid.jpg
 grey
-save kid-grey.jpg
+dither
+save kid-fxxk-mosaic.jpg

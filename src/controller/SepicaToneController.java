@@ -4,7 +4,7 @@ import model.AbstractImage;
 import model.Image;
 
 /**
- * Controller to sepicaTone the image.
+ * SepicaTone controller.
  */
 public class SepicaToneController extends BaseController implements SepicaToneInterface {
 

@@ -15,8 +15,8 @@ public class ditherMain {
     Image kidImg = (Image) FileUtils.load("./res/kid.jpg");
     DitherController ditherController = new DitherController();
     Image ditherPanda = (Image) ditherController.dither(pandaImg);
-    Image bluredKid = (Image) ditherController.dither(kidImg);
+    Image ditherKid = (Image) ditherController.dither(kidImg);
     FileUtils.save(ditherPanda, "./res/panda_dither.jpg");
-    FileUtils.save(bluredKid, "./res/kid_dither.jpg");
+    FileUtils.save(ditherKid, "./res/kid_dither.jpg");
   }
 }
