@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import controller.GreyScaleController;
-
 /**
  * The class represents the operations for image.
  */
@@ -26,6 +24,10 @@ public class Image extends AbstractImage {
     this.length = length;
     this.pixels = pixel;
   }
+
+  public Image() {
+  }
+
 
   public double getWidth() {
     return width;

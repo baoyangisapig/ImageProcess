@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -32,7 +33,10 @@ public class BaseController {
 
   protected Image helpFilterOperate(AbstractImage image, double[][] filter) {
     Image img = (Image) image;
-    Pixel[][] pixels = img.getPixels();
+    Image instance = new Image();
+    instance.setLength(img.getLength());
+    instance.setWidth(img.getWidth());
+    Pixel[][] pixels = copyOf(img.getPixels());
     for (int i = 0; i <= pixels.length - 1; i++) {
       for (int j = 0; j <= pixels[0].length - 1; j++) {
         pixels[i][j].setR(getFixedValue(filter, pixels, i, j, 0));
@@ -41,13 +45,16 @@ public class BaseController {
       }
     }
     clamp(pixels);
-    img.setPixels(pixels);
-    return img;
+    instance.setPixels(pixels);
+    return instance;
   }
 
   protected AbstractImage helpTransformOperate(AbstractImage image, double[][] filter) {
     Image img = (Image) image;
-    Pixel[][] pixels = img.getPixels();
+    Image instance = new Image();
+    instance.setLength(img.getLength());
+    instance.setWidth(img.getWidth());
+    Pixel[][] pixels = copyOf(img.getPixels());
     for (int i = 0; i <= pixels.length - 1; i++) {
       for (int j = 0; j <= pixels[0].length - 1; j++) {
         int r = (int) (filter[0][0] * pixels[i][j].getR() + filter[0][1] * pixels[i][j].getG()
@@ -62,8 +69,8 @@ public class BaseController {
       }
     }
     clamp(pixels);
-    img.setPixels(pixels);
-    return img;
+    instance.setPixels(pixels);
+    return instance;
   }
 
   protected int getFixedValue(double[][] filter, Pixel[][] pixels, int i, int j, int flag) {
@@ -89,15 +96,18 @@ public class BaseController {
             {0.2126, 0.7152, 0.0722}
     };
     image = (Image) helpTransformOperate(image, filter);
-    Pixel[][] pixels = image.getPixels();
+    Image instance = new Image();
+    instance.setLength(image.getLength());
+    instance.setWidth(image.getWidth());
+    Pixel[][] pixels = copyOf(image.getPixels());
 
     for (int i = 0; i <= pixels.length - 1; i++) {
       for (int j = 0; j <= pixels[0].length - 1; j++) {
         manipulate(pixels, i, j);
       }
     }
-    image.setPixels(pixels);
-    return image;
+    instance.setPixels(pixels);
+    return instance;
   }
 
   protected void manipulate(Pixel[][] pixels, int i, int j) {
@@ -141,8 +151,12 @@ public class BaseController {
     }
   }
 
-  protected AbstractImage helpMosaic(Image image, int seeds) {
-    Pixel[][] pixels = image.getPixels();
+  protected AbstractImage helpMosaic(AbstractImage image, int seeds) {
+    Image img = (Image) image;
+    Image instance = new Image();
+    instance.setWidth(img.getWidth());
+    instance.setLength(img.getLength());
+    Pixel[][] pixels = copyOf(img.getPixels());
     int[][] seed_index = new int[seeds][2];
     int length = pixels.length;
     int width = pixels[0].length;
@@ -191,11 +205,22 @@ public class BaseController {
         pixels[cur[0]][cur[1]].setB(b);
       }
     }
-    image.setPixels(pixels);
-    return image;
+    instance.setPixels(pixels);
+    return instance;
   }
 
   private long distance(int x1, int y1, int x2, int y2) {
     return (long) (Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+  }
+
+  private Pixel[][] copyOf(Pixel[][] pixels) {
+    if (pixels.length == 0 || pixels[0].length == 0) return new Pixel[0][0];
+    Pixel[][] copy = new Pixel[pixels.length][pixels[0].length];
+    for (int i = 0; i <= pixels.length - 1; i++) {
+      for (int j = 0; j <= pixels[0].length - 1; j++) {
+        copy[i][j] = new Pixel(pixels[i][j].getR(), pixels[i][j].getG(), pixels[i][j].getB());
+      }
+    }
+    return copy;
   }
 }
