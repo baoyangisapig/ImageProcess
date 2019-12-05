@@ -22,13 +22,14 @@ public class FileMain {
   private static Image img = null;
 
   public static void main(String[] args) throws IOException {
-    File file = new File("res/script.txt");
+    String path = args[0];
+    File file = new File(path);
     BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
     String str = null;
     while ((str = bufferedReader.readLine()) != null) {
       String[] arr = str.trim().split(" ");
       if (arr[0].equals("load")) {
-        img = (Image) FileUtils.load("res/" + arr[1]);
+        img = (Image) FileUtils.load(arr[1]);
       } else if (arr[0].equals("blur")) {
         BlurController controller = new BlurController();
         img = (Image) controller.blur(img);
@@ -48,7 +49,7 @@ public class FileMain {
         MosaicController controller = new MosaicController();
         img = (Image) controller.mosaic(img, 1000);
       } else if (arr[0].equals("save")) {
-        FileUtils.save(img, "res/" + arr[1]);
+        FileUtils.save(img, arr[1]);
       }
     }
     bufferedReader.close();
